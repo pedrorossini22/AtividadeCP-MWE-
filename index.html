@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <header> 
+        <h1>Atividade 1</h1>
+        <button>Exercicio 10</button>
+    </header>
+
+    <section class="section1">
+        <h2>Estrutura básica de página (HTML + CSS)</h2>
+        <nav>
+            <li> Ayrton Senna </li>
+            <li> Niki Lauda </li>
+            <li> Felipe Massa </li>
+        </nav>
+    </section>
+
+
+    
+    <section class="section2">
+        <h2>Manipulação de elementos com JavaScript</h2>
+    
+        <nav>
+            <button id="mudarCorBtn"> Mudar de cor</button>
+            
+        </nav>
+
+    </section>
+    
+
+<footer class="rodape">
+
+    <h3>Pedro Rossini</h3>
+    
+</footer>
+
+<script>
+    function mudarCorBtn() {
+        const cores = ["#FF5733"];
+        const corAleatoria = cores[Math.floor(math.random() * cores.length)];
+    }
+    document.getElementById("mudarCorBtn").addEventListener("click", mudarCorDeFundo);
+
+    function gerarCorAleatoria() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+function mudarCorDeFundo() {
+    document.body.style.backgroundColor = gerarCorAleatoria();
+}
+</script>
+
+
+<section class="section3">
+    <h2>Inserir e remover elementos do DOM</h2>
+
+    <input type="text" id="itemInput" placeholder="Digite um item">
+            <button id="adicionarItemBtn">Adicionar Item</button>
+            <ul id="listaItens"></ul
+
+    
+    </section>
+
+
+<script>
+    function digitarTexto(elemento, texto, callback) {
+            let index = 0;
+            elemento.classList.add("cursor"); // Adiciona o cursor de digitação
+
+            function digitar() {
+                if (index < texto.length) {
+                    elemento.textContent += texto.charAt(index); // Adiciona o próximo caractere
+                    index++;
+                    setTimeout(digitar, 100); // Intervalo de 100ms entre cada caractere
+                } else {
+                    elemento.classList.remove("cursor"); // Remove o cursor após terminar
+                    if (callback) callback(); // Chama o callback (se existir)
+                }
+            }
+
+            digitar(); // Inicia o efeito de digitação
+        }
+        
+        function adicionarItem() {
+            const input = document.getElementById("itemInput"); // Campo de texto
+            const texto = input.value.trim(); // Obtém o texto digitado e remove espaços em branco
+
+            if (texto !== "") { // Verifica se o campo não está vazio
+                const lista = document.getElementById("listaItens"); // Lista <ul>
+                const novoItem = document.createElement("li"); // Cria um novo <li>
+
+                // Adiciona o efeito de texto digitado ao novo item
+                digitarTexto(novoItem, texto, () => {
+                    // Adiciona um evento de clique para remover o item
+                    novoItem.addEventListener("click", function () {
+                        lista.removeChild(novoItem); // Remove o item da lista
+                    });
+                });
+
+                lista.appendChild(novoItem); // Adiciona o novo item à lista
+                input.value = ""; // Limpa o campo de texto
+            } else {
+                alert("Por favor, digite um item válido."); // Alerta se o campo estiver vazio
+            }
+        }
+
+        // Adiciona um evento de clique ao botão "Adicionar Item"
+        document.getElementById("adicionarItemBtn").addEventListener("click", adicionarItem);
+
+        // Adiciona um evento de tecla "Enter" no campo de texto
+        document.getElementById("itemInput").addEventListener("keypress", function (e) {
+            if (e.key === "Enter") { // Verifica se a tecla pressionada é "Enter"
+                adicionarItem(); // Chama a função para adicionar o item
+            }
+        });
+</script>
+
+<section class="section4">
+    <h2>Consumir dados de uma API (GET)</h2>
+
+</section>
+
+<section class="section5">
+    <h2>Enviar dados para a API (POST)</h2>
+
+</section>
+
+<section class="section6">
+    <h2>Exibindo dados retornados em tabela</h2>
+
+</section>
+
+<section class="section7">
+    <h2>Manipulação do JSON recebido</h2>
+
+</section>
+
+<section class="section8">
+    <h2>Criação de um pequeno CRUD (sem backend real)</h2>
+
+</section>
+
+<section class="section9">
+    <h2>Validação de formulários com JavaScript</h2>
+
+</section>
+
+<section class="section10">
+    <h2>Integração completa: listagem, cadastro e exibição dinâmica</h2>
+
+</section>
+
+
+
+</body>
+
+</html>
